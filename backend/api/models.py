@@ -12,6 +12,7 @@ class GrupProduct(models.Model):
 class Product(models.Model):
     grup=models.ForeignKey(GrupProduct, on_delete=models.CASCADE, related_name='grup')
     your_boolean_field = models.BooleanField(default=False)
+    imageProduct=models.ImageField(blank=True)
     productName=models.CharField(max_length=100)
     priceProduct=models.IntegerField(blank=True)
     totalProduct=models.IntegerField(blank=True)
