@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
+    'api',
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
