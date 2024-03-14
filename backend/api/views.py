@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework.generics import *
 from .serializers import *
 from .models import *
+from django.contrib.auth import get_user_model
 # Create your views here.
 
 def getObject(name, views, model, serializer):
@@ -13,3 +14,4 @@ def getObject(name, views, model, serializer):
 GrupProductViews=getObject('GrupProductViews', ListCreateAPIView, GrupProduct, GrupSerializer)
 ProductViews=getObject('ProductViews', ListCreateAPIView, Product, ProductSerializer)
 AuditViews=getObject('AuditViews', ListCreateAPIView, Audit, AuditSerailizer)
+UserViews=getObject('UserViews', ListAPIView, get_user_model(), UserSerializer)
