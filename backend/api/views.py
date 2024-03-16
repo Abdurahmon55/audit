@@ -20,7 +20,7 @@ class UserViews(ListAPIView):
 
 
 GrupProductViews=getObject('GrupProductViews', ListCreateAPIView, GrupProduct, GrupSerializer)
-GrupProductDetailViews=getObject('GrupProductDetailViews', RetrieveDestroyAPIView, GrupProduct, GrupSerializer)
+GrupProductDetailViews=getObject('GrupProductDetailViews', RetrieveUpdateDestroyAPIView, GrupProduct, GrupSerializer)
 ProductViews=getObject('ProductViews', ListCreateAPIView, Product, ProductSerializer)
 ProductDetailViews=getObject('ProductDetailViews', RetrieveUpdateDestroyAPIView, Product, ProductSerializer)
 AuditViews=getObject('AuditViews', ListCreateAPIView, Audit, AuditSerailizer)

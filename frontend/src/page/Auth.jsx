@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux'
 import { selectHadProduct, selectProduct } from '../redux/ProductSlice'
 import AddProduct from '../components/Auth/AddProduct'
 import GrupCard from '../components/Auth/GrupCard'
+import AddGrup from '../components/Auth/AddGrup'
 function Auth() {
   const product = useSelector(selectProduct)
   const hadGrup=useSelector(selectHadProduct)
+  console.log(product);
   return (
     <div className='grid grid-cols-12'>
       <div className='md:col-span-3 lg:col-span-2 col-span-4'>
@@ -19,6 +21,7 @@ function Auth() {
           <GrupCard key={item.id}{...item} item={item} />
         ))}
         </div> : null}
+        {product == 'add grup' ? <AddGrup/> : null }
       </div>
     </div>
   )
