@@ -4,8 +4,9 @@ import { MdProductionQuantityLimits } from "react-icons/md";
 import { FaBalanceScaleLeft } from "react-icons/fa";
 import { RiFindReplaceLine } from "react-icons/ri";
 import { GrUpdate } from "react-icons/gr";
-import { useDispatch} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import { setProduct } from '../../redux/ProductSlice';
+import { selectAuthData } from '../../redux/AuthSlice';
 function SidebarAuth() {
 
     const sidebarInfo=[
@@ -15,14 +16,14 @@ function SidebarAuth() {
         {name:'grup', icon:<RiFindReplaceLine />,  id:4},
         {name:'product', icon:<RiFindReplaceLine />,  id:5},
     ]
-
     const dispatch=useDispatch()
+    const auth = useSelector(selectAuthData)
 
   return (
     <div className=' border-r px-4'>
         <div className='flex items-center gap-1 py-5 border-b-2'>
             <i><IoPersonCircleSharp /></i>
-            <span>user name</span>
+            <span>{auth && auth.username}</span>
         </div>
         <div className='mt-2'>
             {sidebarInfo.map((item)=>(

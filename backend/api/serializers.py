@@ -15,17 +15,17 @@ class AuditSerailizer(ModelSerializer):
         fields='__all__'
 
 class GrupSerializer(ModelSerializer):
+    audit=AuditSerailizer(many=True, read_only = True)
     product=ProductSerializer(many=True, read_only = True)
     class Meta:
         model=GrupProduct
         fields='__all__'
 
 class UserSerializer(ModelSerializer):
-    audit=AuditSerailizer(many=True, read_only = True)
     grup=GrupSerializer(many=True, read_only = True)
     class Meta:
         model=get_user_model()
-        fields=['id', 'grup', 'username', 'last_login', 'audit']
+        fields=['id', 'grup', 'username', 'last_login']
 
 
 
