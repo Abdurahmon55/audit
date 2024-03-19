@@ -5,9 +5,11 @@ const initialState={
     hadProduct:'',
     page:'grups',
     products:'',
-    toggol:[1,2],
+    array:[1,2],
     counter:0,
     grupImage:'',
+    toggol:false,
+    default:[2, 106, 'http://127.0.0.1:8000/maggio200820011.jpg'],
 }
 
 const ProductSlice=createSlice({
@@ -26,8 +28,8 @@ const ProductSlice=createSlice({
         setProducts:(state, action)=>{
             state.products=action.payload
         },
-        setToggol:(state, action)=>{
-            state.toggol.push(action.payload)
+        setArray:(state, action)=>{
+            state.array.push(action.payload)
         },
         setCount:(state, action)=>{
             state.counter+=action.payload
@@ -37,13 +39,18 @@ const ProductSlice=createSlice({
         },
         setGrupImage:(state, action)=>{
             state.grupImage=action.payload
+        },
+        setToggol:(state, action)=>{
+            state.toggol=action.payload
         }
     }
 })
 
-export const {setProduct, setHadProduct, setPage, setProducts, setToggol, setCount, resCount, setGrupImage}=ProductSlice.actions
-export const selectToggol=(state)=>state.product.toggol
+export const {setProduct, setHadProduct, setPage, setProducts, setArray, setCount, resCount, setGrupImage, setToggol}=ProductSlice.actions
+export const selectArray=(state)=>state.product.array
 export const selectCounter=(state)=>state.product.counter
+export const selectToggol=(state)=>state.product.toggol
+export const selectDefault=(state)=>state.product.default
 export const selectPage=(state)=>state.product.page
 export const selectProduct=(state)=>state.product.product
 export const selectGrupImage=(state)=>state.product.grupImage

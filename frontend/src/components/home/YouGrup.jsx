@@ -1,16 +1,18 @@
 import axios from 'axios'
 import React from 'react'
 import { useDispatch, useSelector} from 'react-redux'
-import { selectToggol, setPage, setProducts } from '../../redux/ProductSlice'
+import { useNavigate } from 'react-router-dom'
+import {  selectProducts, setPage, setProducts } from '../../redux/ProductSlice'
 
 function YouGrup({
     grupName, authAddImage, index, id, 
 }) {
+    const productId = useSelector(selectProducts)
     const dispatch = useDispatch()
-    const toggol = useSelector(selectToggol)
+    const naviget = useNavigate()
 
     const products=()=>{
-        dispatch(setProducts([index, id, authAddImage ? authAddImage : null]))
+        dispatch(setProducts([index, id, authAddImage ]))
         dispatch(setPage('product'))
     }
 
@@ -26,7 +28,7 @@ function YouGrup({
                     <h3 className="mt-2 md:text-xl  font-bold text-green-500 text-left">grup</h3>
                     <div className='flex gap-2'>
                        <button onClick={products} className="text-sm mt-2 lg:mt-6 px-1 md:px-4 py-2 bg-green-400  text-white rounded-lg  tracking-wider hover:bg-red-500 outline-none ">entry in grup</button> 
-                       <button onClick={deleteGrup} className="text-sm mt-2 lg:mt-6 px-1 md:px-4 py-2 bg-red-400  text-white rounded-lg  tracking-wider hover:bg-green-500 outline-none">grup  delete</button> 
+                       <button onClick={deleteGrup} className="text-sm mt-2 lg:mt-6 px-1 md:px-4 py-2 bg-red-400  text-white rounded-lg  tracking-wider hover:bg-green-500 outline-none">delete</button> 
                     </div>
                     
                 </div>

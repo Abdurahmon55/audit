@@ -9,6 +9,7 @@ import Navbar from './components/Navbar'
 import Auth from './page/Auth'
 import axios from 'axios'
 import { setHadProduct } from './redux/ProductSlice'
+import Balance from './page/Balance'
 
 function App() {
   const dispatch = useDispatch()
@@ -35,12 +36,13 @@ function App() {
   
 
   return (
-    <div className='container m-auto' >
+    <div className='xl:container m-auto' >
       {idAuth ? <Navbar /> : null}
       <Routes>
         <Route path='login/' element={<Login />} />
         {authId ? <Route path='/' element={<Home />} /> : null}
         {authId ? <Route path='account/' element={<Auth />} />: null}
+        {authId ? <Route path='balance/' element={<Balance/>} />: null}
       </Routes>
         
     </div>
